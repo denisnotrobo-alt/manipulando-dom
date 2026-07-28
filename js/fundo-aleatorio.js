@@ -1,6 +1,8 @@
 // trocando o fundo do site com base no horário
 
 const date = new Date()
+
+// trocar o valor de hora para date.getHours()
 const hora = 7
 
 console.log(hora)

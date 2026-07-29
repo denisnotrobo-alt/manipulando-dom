@@ -5,7 +5,6 @@ const date = new Date()
 // trocar o valor de hora para date.getHours()
 const hora = 7
 
-console.log(hora)
 // pegando outros elementos
 const minutos = date.getMinutes()
 const anoCompleto = date.getFullYear()

@@ -50,6 +50,16 @@ a {
   color: inherit;
 }
 
+i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
@@ -88,6 +98,8 @@ a {
   padding: .5rem 1rem;
 
   position: relative;
+  z-index: 9999;
+
 }
 
 .header a {
@@ -112,8 +124,10 @@ a {
   display: flex;
   flex-direction: column;
 
-  /* remover esse bg */
-  background-color: green;
+  background: #000000e0;
+  backdrop-filter: blur(10px);
+  border: 0.125rem solid var(--color-neutral-300);
+  border-radius: 2rem;
 
   position: absolute;
   top: 4rem;
@@ -198,6 +212,42 @@ a {
   padding: 0.5rem;
   border-radius: 1rem;
   background: #000000cf;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.acoes button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.concluir {
+  border: 1px solid #29a45c;
+  color: #29a45c;
+  background-color: #126c3857;
+}
+
+.remover {
+  border: 1px solid #951c1c;
+  color: #951c1c;
+  background-color: #6c121257;
+}
+
+.tarefa-concluida {
+  text-decoration: line-through;
+  color: #6a6a6a;
+}
+
+.remover:hover {
+  color: #c22323;
+  background-color: #6c121288;
 }
 
 @media screen and (min-width: 800px) {

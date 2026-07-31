@@ -148,10 +148,10 @@ button {
   font-size: 1.25rem;
 }
 
-/* estilos todo-list */
-/* remover ao finalizar estilos */
+/* estilos todo-list, pokemon */
 
-.todo-card {
+.todo-card,
+.pokemon-card {
   background: var(--backdrop-color);
   backdrop-filter: blur(10px);
   color: var(--color-neutral-200);
@@ -163,26 +163,31 @@ button {
   border-radius: 2rem;
 }
 
-.todo-card header {
+.todo-card header,
+.pokemon-card header {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.todo-card header h2 {
+.todo-card header h2,
+.pokemon-card header h2 {
   font-size: clamp(1.5rem, 5vw, 2rem);
   /* clamp(valor minimo, valor preferido, valor máximo) */
 }
 
-.todo-card header p {
+.todo-card header p,
+.pokemon-card header p {
   font-size: clamp(1rem, 5vw, 1.25rem);
 }
 
-.todo-form {
+.todo-form,
+.pokemon-form {
   display: flex;
   gap: 1rem;
 }
 
-.todo-form input {
+.todo-form input,
+.pokemon-form input {
   border: 2px solid transparent;
   border-radius: 1rem;
   padding: 1rem;
@@ -191,7 +196,8 @@ button {
   font-size: 1rem;
 }
 
-.todo-form button {
+.todo-form button,
+.pokemon-form button {
   border-radius: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -202,13 +208,16 @@ button {
   flex: 1;
 }
 
-.todo-form button:hover {
+.todo-form button:hover,
+.pokemon-form button:hover {
   background-color: var(--color-black);
   color: var(--color-neutral-200);
 }
 
 .todo-form input:focus,
-.todo-form button:focus {
+.todo-form button:focus,
+.pokemon-form input:focus,
+.pokemon-form button:focus {
   border-color: #4f46e5;
 }
 

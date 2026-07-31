@@ -1,78 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Site</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Site</title>
+    <!-- Fonts google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet">
+    <!-- Icons BootStrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
 
-  <!-- Icons BootStrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- css global -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- css global -->
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <a href="#conteudo" class="skip-link"> Pular para o conteúdo principal</a>
 
-<body>
-  <a href="#conteudo" class="skip-link"> Pular para o conteúdo principal</a>
-
-  <header>
-    <div class="container">
-      <div class="header">
-
-        <h1><a href="/">Logo</a></h1>
-
-        <button type="button" aria-label="Abrir Menu" aria-expanded="false" aria-controls="navegacao-primaria"
-          id="btn-menu">
-          <i class="bi bi-list" aria-hidden="true"></i>
-        </button>
-
-        <nav id="navegacao-primaria" aria-label="Menu principal">
-          <ul>
-            <li><a href="#">Ínicio</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main id="conteudo">
-    <section class="todo-section">
+    <header>
       <div class="container">
+        <div class="header">
+          <h1><a href="/">Logo</a></h1>
 
-        <article class="todo-card">
-          <header>
-            <h2>Lista de tarefas</h2>
-            <p>Adicione suas tarefas do dia</p>
-          </header>
+          <button
+            type="button"
+            aria-label="Abrir Menu"
+            aria-expanded="false"
+            aria-controls="navegacao-primaria"
+            id="btn-menu"
+          >
+            <i class="bi bi-list" aria-hidden="true"></i>
+          </button>
 
-          <form class="todo-form" id="todo-form">
-            <label for="tarefa" class="sr-only">Nova Tarefa</label>
-            <input type="text" placeholder="Digite uma tarefa..." id="tarefa" autocomplete="off">
-
-            <button type="submit">Adicionar</button>
-          </form>
-
-          <ul class="todo-list" id="todo-list">
-          </ul>
-        </article>
-
+          <nav id="navegacao-primaria" aria-label="Menu principal">
+            <ul>
+              <li><a href="#">Ínicio</a></li>
+              <li><a href="#">Sobre</a></li>
+              <li><a href="#">Serviços</a></li>
+              <li><a href="#">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <script src="./js/menu-hamburguer.js"></script>
-  <script src="./js/fundo-aleatorio.js"></script>
-  <script src="./js/todo-list.js"></script>
-</body>
+    <main id="conteudo">
+      <section class="todo-section">
+        <div class="container">
+          <article class="todo-card">
+            <header>
+              <h2>Lista de tarefas</h2>
+              <p>Adicione suas tarefas do dia</p>
+            </header>
 
+            <form class="todo-form" id="todo-form">
+              <label for="tarefa" class="sr-only">Nova Tarefa</label>
+              <input
+                type="text"
+                placeholder="Digite uma tarefa..."
+                id="tarefa"
+                autocomplete="off"
+              />
+
+              <button type="submit">Adicionar</button>
+            </form>
+
+            <ul class="todo-list" id="todo-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="pokemon-section">
+        <div class="container">
+          <article class="pokemon-card">
+            <header>
+              <h2>Pokédex</h2>
+              <p>Pesquise qualquer Pokémon</p>
+            </header>
+
+            <form id="pokemon-form" class="pokemon-form">
+              <label for="pokemon-input" class="sr-only">
+                Digite o nome do pokémon
+              </label>
+
+              <input
+                type="text"
+                id="pokemon-input"
+                placeholder="Ex: Pikachu"
+                autocomplete="off"
+              />
+
+              <button type="submit">Buscar Pokémon</button>
+            </form>
+
+            <section class="pokemon-resultado" id="pokemon-resultado">
+              <img src="" alt="" id="pokemon-imagem" />
+              <h3 id="pokemon-nome">Nome do Pokémon</h3>
+              <p id="pokemon-altura">Altura do Pokémon</p>
+              <p id="pokemon-peso">Peso do Pokémon</p>
+              <ul id="pokemon-tipos"></ul>
+            </section>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/menu-hamburguer.js"></script>
+    <script src="./js/fundo-aleatorio.js"></script>
+    <script src="./js/todo-list.js"></script>
+    <script src="./js/pokemon-api.js"></script>
+  </body>
 </html>

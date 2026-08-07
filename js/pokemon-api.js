@@ -1,16 +1,21 @@
-const formPokemon = document.getElementById("pokemon-form");
+// pegando elementos do HTML
+const formPokemon = document.getElementById("pokemon-form"); // document = representa toda a página HTML
 const inputPokemon = document.getElementById("pokemon-input");
-
 const pokemonCard = document.querySelector(".pokemon-card");
 
-console.log(pokemonCard);
+const div = document.createElement("div");
 
+// adicionando um evento ao formulário
+// quando alguém enviar(submit) esse formulário, execute a função buscarPokemon
 formPokemon.addEventListener("submit", buscarPokemon);
 
 async function buscarPokemon(event) {
   event.preventDefault();
 
   const pokemon = inputPokemon.value.trim().toLowerCase();
+  // .value = pega o valor digitado no campo de input
+  // .trim() = remove espaços em branco antes e depois da palavra
+  // .toLowerCase() = serve para transformar o texto digitado em letras minúsculas
 
   if (pokemon === "") {
     alert("Digite o nome de um pokémon");
@@ -20,16 +25,18 @@ async function buscarPokemon(event) {
 
   try {
     // await - aguardar
-    //fetch - buscar/pegar algo no servidor
+    // fetch - buscar/pegar algo no servidor
     // estamos dizendo para o navegador aguardar(await) a busca(fetch) de dados no servidor
     const resposta = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemon}`,
     );
 
-    console.log(resposta);
-
     if (!resposta.ok) {
       console.error("Pokémon não encontrado");
+      div.innerHTML =
+        "<p class='erro'>Pokémon não encontrado. Tente novamente!</p>";
+      pokemonCard.append(div);
+      inputPokemon.focus();
       return;
     }
 
@@ -37,18 +44,21 @@ async function buscarPokemon(event) {
     const dadosPokemon = await resposta.json();
     console.log(dadosPokemon);
 
-    pokemonCard.innerHTML = `
-      <section class="pokemon-resultado" id="pokemon-resultado">
-        <img src="${dadosPokemon.sprites.other["official-artwork"].front_default}" alt="" id="pokemon-imagem" />
-        <h3 id="pokemon-nome"> ${dadosPokemon.name} </h3>
-        <p id="pokemon-altura"> ${dadosPokemon.height} </p>
-        <p id="pokemon-peso"> ${dadosPokemon.weight} </p>
-      </section>
+    div.innerHTML = `
+      <section class="pokemon-resultado">
+        <img src="${dadosPokemon.sprites.other["official-artwork"].front_default}" alt="Foto do pokémon ${dadosPokemon.name}" />
+        <div>
+        <h3> ${dadosPokemon.name} </h3>
+        <p> ${dadosPokemon.height / 10} m</p>
+        <p> ${dadosPokemon.weight / 10} kg</p>
+        </div>
+        </section>
     `;
+
+    pokemonCard.append(div);
+    inputPokemon.value = "";
+    inputPokemon.focus();
   } catch (error) {
     console.error(error);
   }
-
-  // remover ao finalizar função
-  console.log("Ditto");
 }
